@@ -1,0 +1,182 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/api/v1/notebook": {
+            "get": {
+                "summary": "Получение полей записной книжки постранично ",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1,
+                            "description": "Номер страницы для постраничного вывода"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Поля записной книжки",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Notebook"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Создание нового поля в записной книжке ",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NotebookRequest"
+                            }
+                        }
+                    }
+                },
+
+                "responses": {
+                    "201": {
+                        "description": "Записная книжка удачно создана",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notebook"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/notebook/{id}": {
+            "get": {
+                "summary": "Получение определённого поля записной книжки по ID",
+
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "integer" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A single notebook",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notebook"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Notebook not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Обновление поля в записной книжке по ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "integer" }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NotebookRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Поле записной книжки успешно обновлено",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notebook"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Удалить поле записной книжки по ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "integer" }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Поле записной книжки успешно удалено"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Notebook": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "integer" },
+                    "fullname": { "type": "string" },
+                    "company": { "type": "string" },
+                    "phone": { "type": "string" },
+                    "email": { "type": "string" },
+                    "date_of_birth": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "image": { "type": "string" },
+                    "created_at": { "type": "string", "format": "date-time" },
+                    "updated_at": { "type": "string", "format": "date-time" }
+                }
+            },
+            "NotebookRequest": {
+                "type": "object",
+                "properties": {
+                    "fullname": { "type": "string" },
+                    "company": { "type": "string" },
+                    "phone": { "type": "string" },
+                    "email": { "type": "string" },
+                    "date_of_birth": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "image": { "type": "string" }
+                },
+                "required": ["fullname", "phone", "email"]
+            }
+        }
+    }
+}

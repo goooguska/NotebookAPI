@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('company')->nullable();
             $table->string('phone');
             $table->string('email');
-            $table->string('date_of_birth')->nullable();
+            $table->dateTime('date_of_birth')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });
