@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "589cc0f65c3aaa7d4e9024d545bc1974",
+    "content-hash": "ce144ad33781835eb7f65cb8e2345686",
     "packages": [
         {
             "name": "brick/math",
@@ -6786,6 +6786,57 @@
             "time": "2024-10-28T13:07:50+00:00"
         },
         {
+            "name": "qschool/fakerphp-image-provider",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qschool/fakerphp-image-provider.git",
+                "reference": "27c7fb20e62621f67cb056e6bf62b0c6a7912258"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/qschool/fakerphp-image-provider/zipball/27c7fb20e62621f67cb056e6bf62b0c6a7912258",
+                "reference": "27c7fb20e62621f67cb056e6bf62b0c6a7912258",
+                "shasum": ""
+            },
+            "require": {
+                "fakerphp/faker": "^1.10",
+                "php": "^8.0"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "QSchool\\FakerImageProvider\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mikhail Volkov",
+                    "email": "mvsvolkov@gmail.com"
+                }
+            ],
+            "description": "Провайдер для получения фейковых изображения с https://lorem.space",
+            "homepage": "https://github.com/qschool/fakerphp-image-provider",
+            "keywords": [
+                "faker",
+                "images",
+                "php",
+                "qschool"
+            ],
+            "support": {
+                "issues": "https://github.com/qschool/fakerphp-image-provider/issues",
+                "source": "https://github.com/qschool/fakerphp-image-provider/tree/v1.0.1"
+            },
+            "time": "2024-10-28T16:22:09+00:00"
+        },
+        {
             "name": "sebastian/cli-parser",
             "version": "3.0.2",
             "source": {
@@ -7832,12 +7883,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
