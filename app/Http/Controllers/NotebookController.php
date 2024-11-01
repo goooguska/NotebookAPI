@@ -12,7 +12,7 @@ class NotebookController extends Controller
 
     public function index()
     {
-        $notebooks = Notebook::all();
+        $notebooks = Notebook::paginate(5);
         return response()->json($notebooks);
     }
 

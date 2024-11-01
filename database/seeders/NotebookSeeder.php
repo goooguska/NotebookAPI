@@ -13,6 +13,6 @@ class NotebookSeeder extends Seeder
      */
     public function run(): void
     {
-        Notebook::factory()->count(5)->create();
+        Notebook::factory()->count(15)->create();
     }
 }
