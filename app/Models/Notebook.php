@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notebook extends Model
 {
-    /** @use HasFactory<\Database\Factories\NotebookFactory> */
     use HasFactory;
+    protected $fillable = ['fullname', 'company', 'phone', 'email', 'date_of_birth', 'image'];
 }
