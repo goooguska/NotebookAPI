@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - .:/var/www
+        ports:
+            - "8000:8000"
+        environment:
+            - DB_CONNECTION=sqlite
+            - DB_DATABASE=/var/www/database/database.sqlite
